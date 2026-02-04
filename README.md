@@ -48,6 +48,7 @@ audio_check_dependencies
 ## 🔧 Abhängigkeiten
 
 **Erforderlich:**
+
 - `cdparanoia` - CD-Ripping mit Fehlerkorrektur
 - `lame` - MP3-Encoder
 - `eyed3` - ID3-Tag Editor
@@ -55,6 +56,7 @@ audio_check_dependencies
 - `curl`, `jq` - API-Kommunikation
 
 **Optional:**
+
 - `wodim` - CD-Informationen auslesen
 - `libcdio-utils` (cd-info) - CD-TEXT Support
 - [disk2iso-musicbrainz](https://github.com/DirkGoetze/disk2iso-musicbrainz) - MusicBrainz Provider
@@ -110,7 +112,7 @@ AUDIO_CREATE_ISO=true
 **Parameter:**
 
 | Parameter | Standard | Beschreibung |
-|-----------|----------|--------------|
+| --------- | -------- | ------------ |
 | `AUDIO_ENCODER` | `lame` | MP3-Encoder |
 | `AUDIO_BITRATE` | `V2` | LAME VBR Qualität (V0-V9, V2≈190kbps) |
 | `AUDIO_FORMAT` | `mp3` | Ausgabeformat |
@@ -282,7 +284,7 @@ audio_rip_with_metadata() {
 **LAME VBR Einstellungen:**
 
 | Preset | Bitrate | Qualität | Dateigröße (74min CD) |
-|--------|---------|----------|----------------------|
+| ------ | ------- | -------- | --------------------- |
 | V0 | 220-260 kbps | Transparent | ~110 MB |
 | V1 | 190-250 kbps | Sehr gut | ~95 MB |
 | **V2** | **170-210 kbps** | **Exzellent** | **~85 MB** |
@@ -331,7 +333,7 @@ MIT License - siehe [LICENSE](LICENSE) Datei.
 
 ## 👤 Autor
 
-**D. Götze**
+D. Götze
 
 ## 🙏 Danksagungen
 
