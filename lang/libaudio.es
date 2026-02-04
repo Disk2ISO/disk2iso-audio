@@ -14,9 +14,7 @@
 # Nota: Mensajes de verificación de herramientas vienen de lib-config.es (MSG_CONFIG_*)
 # Solo mensajes específicos del módulo aquí
 
-readonly MSG_CDTEXT_FALLBACK_AVAILABLE="Alternativa CD-TEXT disponible"
-readonly MSG_CDTEXT_FALLBACK_INSTALL_HINT="Sugerencia: Para alternativa CD-TEXT instalar: icedax o libcdio-utils (cd-info)"
-readonly MSG_AUDIO_SUPPORT_AVAILABLE="Soporte Audio-CD disponible"
+readonly MSG_AUDIO_SUPPORT_AVAILABLE="Soporte de Audio-CD disponible"
 
 # Mensajes de depuración
 readonly MSG_DEBUG_AUDIO_CHECK_START="Comprobando dependencias del módulo Audio-CD..."
@@ -26,10 +24,6 @@ readonly MSG_DEBUG_AUDIO_CHECK_COMPLETE="Módulo Audio-CD inicializado correctam
 # METADATOS
 # ============================================================================
 
-readonly MSG_TRY_CDTEXT="Intentando leer CD-TEXT..."
-readonly MSG_CDTEXT_FOUND="CD-TEXT encontrado:"
-readonly MSG_NO_CDTEXT_FOUND="No se encontró CD-TEXT o herramientas no disponibles (icedax/cd-info/cdda2wav)"
-readonly MSG_USE_CDTEXT_METADATA="Usando metadatos CD-TEXT"
 readonly MSG_CONTINUE_NO_METADATA="Continuar sin metadatos"
 
 readonly MSG_RETRIEVE_METADATA="Obteniendo información del CD..."

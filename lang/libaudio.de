@@ -14,8 +14,6 @@
 # Hinweis: Tool-Check Meldungen kommen aus lib-config.de (MSG_CONFIG_*)
 # Hier nur modul-spezifische Meldungen
 
-readonly MSG_CDTEXT_FALLBACK_AVAILABLE="CD-TEXT Fallback verfügbar"
-readonly MSG_CDTEXT_FALLBACK_INSTALL_HINT="Hinweis: Für CD-TEXT Fallback installieren: icedax oder libcdio-utils (cd-info)"
 readonly MSG_AUDIO_SUPPORT_AVAILABLE="Audio-CD Support verfügbar"
 
 # Debug-Meldungen
@@ -26,10 +24,6 @@ readonly MSG_DEBUG_AUDIO_CHECK_COMPLETE="Audio-CD Modul erfolgreich initialisier
 # METADATEN
 # ============================================================================
 
-readonly MSG_TRY_CDTEXT="Versuche CD-TEXT auszulesen..."
-readonly MSG_CDTEXT_FOUND="CD-TEXT gefunden:"
-readonly MSG_NO_CDTEXT_FOUND="Kein CD-TEXT gefunden oder Tools nicht verfügbar (icedax/cd-info/cdda2wav)"
-readonly MSG_USE_CDTEXT_METADATA="Verwende CD-TEXT Metadaten"
 readonly MSG_CONTINUE_NO_METADATA="Fahre ohne Metadaten fort"
 
 readonly MSG_RETRIEVE_METADATA="Ermittle CD-Informationen..."

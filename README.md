@@ -1,6 +1,6 @@
 # disk2iso-audio - Audio-CD Ripping für disk2iso
 
-🎵 Professionelles Audio-CD Ripping mit MusicBrainz-Metadaten, MP3-Encoding und ISO-Erstellung.
+🎵 Professionelles Audio-CD Ripping mit MP3-Encoding und ISO-Erstellung.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platform: Linux](https://img.shields.io/badge/Platform-Linux-blue.svg)](https://www.debian.org/)
@@ -9,11 +9,9 @@
 
 ## ✨ Features
 
-- 🎯 **MusicBrainz-Integration** - Automatische Metadaten-Abfrage via Disc-ID
-- 📀 **CD-TEXT Fallback** - Metadaten von CD lesen wenn MusicBrainz keine Treffer hat
-- 🎵 **High-Quality Ripping** - cdparanoia mit Fehlerkorrektur
-- 🎧 **MP3-Encoding** - LAME VBR V2 (≈190 kbps) mit ID3v2-Tags
-- 🖼️ **Cover-Art** - Album-Cover Download von MusicBrainz/CoverArt Archive
+- 🎯 **CD-TEXT Support** - Metadaten von CD lesen
+- 💿 **High-Quality Ripping** - cdparanoia mit Fehlerkorrektur
+- 🎵 **MP3-Encoding** - LAME VBR V2 (≈190 kbps) mit ID3v2-Tags
 - 💿 **ISO-Erstellung** - MP3-Dateien als ISO-Image mit Metadaten
 - 🔄 **State-Machine Integration** - Nahtlose Integration in disk2iso Workflow
 - 🌍 **Mehrsprachig** - 4 Sprachen (de, en, es, fr)
@@ -36,7 +34,7 @@ git clone https://github.com/DirkGoetze/disk2iso-audio.git
 cd disk2iso-audio
 
 # Abhängigkeiten installieren
-sudo apt install -y cdparanoia lame eyed3 curl jq cd-discid wodim libcdio-utils
+sudo apt install -y cdparanoia lame eyed3 wodim libcdio-utils
 
 # Bibliothek einbinden
 source lib/libaudio.sh
