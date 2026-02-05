@@ -1040,13 +1040,13 @@ copy_audio_cd() {
         metadata_export_nfo "$nfo_file" && log_info "$MSG_NFO_FILE_CREATED" || log_warning "$MSG_INFO_NO_MUSICBRAINZ_NFO_SKIPPED"
     fi
     
-    # Sichere temp_pathname bevor check_disk_space es braucht
+    # Sichere temp_pathname bevor systeminfo_check_disk_space es braucht
     local audio_temp_path="$temp_pathname"
     
     # Prüfe Speicherplatz (Overhead wird automatisch berechnet)
     local album_size_mb=$(du -sm "$album_dir" | awk '{print $1}')
     
-    if ! check_disk_space "$album_size_mb"; then
+    if ! systeminfo_check_disk_space "$album_size_mb"; then
         log_error "$MSG_ERROR_INSUFFICIENT_SPACE_ISO"
         rm -rf "$audio_temp_path"
         finish_copy_log
@@ -1113,5 +1113,66 @@ copy_audio_cd() {
     
     log_copying "$MSG_AUDIO_CD_SUCCESS"
     finish_copy_log
+    return 0
+}
+
+# ============================================================================
+# SOFTWARE INFORMATION (für Widgets)
+# ============================================================================
+
+# ===========================================================================
+# audio_collect_software_info
+# ---------------------------------------------------------------------------
+# Funktion.: Sammle Audio-Modul Software-Informationen
+# Parameter: keine
+# Rückgabe.: 0 = Erfolg, 1 = Fehler
+# Schreibt.: api/audio_software_info.json
+# Hinweis..: Liest Dependencies aus libaudio.ini und nutzt zentrale Prüfung
+# ===========================================================================
+audio_collect_software_info() {
+    local api_dir=$(folders_get_api_dir) || return 1
+    
+    # Lese externe Dependencies aus INI
+    local external_deps=$(config_get_value_ini "audio" "dependencies" "external")
+    # Format: "cdparanoia,lame,genisoimage"
+    
+    # Lese optionale Dependencies aus INI
+    local optional_deps=$(config_get_value_ini "audio" "dependencies" "optional")
+    # Format: "eyeD3,icedax,cd-info,cdda2wav"
+    
+    # Kombiniere zu einem Array
+    local all_deps="${external_deps},${optional_deps}"
+    IFS=',' read -ra dep_array <<< "$all_deps"
+    
+    # Rufe zentrale Prüffunktion auf (aus libsysteminfo.sh)
+    local software_json=$(systeminfo_check_software_list "${dep_array[@]}")
+    
+    # Schreibe in Modul-spezifisches JSON
+    echo "$software_json" > "${api_dir}/audio_software_info.json"
+    
+    return 0
+}
+
+# ===========================================================================
+# audio_get_software_info
+# ---------------------------------------------------------------------------
+# Funktion.: Lese Audio-Software-Informationen für Widget
+# Parameter: keine
+# Rückgabe.: 0 = Erfolg, 1 = Fehler
+# Ausgabe..: JSON-Array (stdout)
+# Für.....: audio_widget_4x1_dependencies
+# Nutzung..: Wird von /api/modules/audio/software aufgerufen
+# ===========================================================================
+audio_get_software_info() {
+    local api_dir=$(folders_get_api_dir) || return 1
+    local json_file="${api_dir}/audio_software_info.json"
+    
+    # Fallback: Sammle Daten wenn JSON nicht existiert
+    if [[ ! -f "$json_file" ]]; then
+        audio_collect_software_info || return 1
+    fi
+    
+    # Gib JSON aus
+    cat "$json_file"
     return 0
 }
