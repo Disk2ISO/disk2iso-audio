@@ -8,22 +8,23 @@
     
     <div class="form-group">
         <label>
-            <input type="checkbox" id="audio_enabled" name="audio_enabled" {{ 'checked' if config.audio_enabled else '' }}>
+            <input type="checkbox" id="audio_enabled" name="audio_enabled" {{ 'checked' if settings.audio_enabled else '' }}>
             Audio-CD Support aktivieren
         </label>
         <div class="help-text">Aktiviert das Rippen von Audio-CDs mit MP3-Encoding</div>
     </div>
     
-    <div id="audio-settings" style="{{ 'display: block;' if config.audio_enabled else 'display: none;' }}">
+    <div id="audio-settings" style="{{ 'display: block;' if settings.audio_enabled else 'display: none;' }}">
         <div class="form-group">
             <label for="mp3_quality">MP3 Qualität</label>
             <select id="mp3_quality" name="mp3_quality">
-                <option value="0" {{ 'selected' if config.mp3_quality == 0 else '' }}>0 - Beste Qualität (~245 kbps)</option>
-                <option value="2" {{ 'selected' if config.mp3_quality == 2 else '' }}>2 - Hohe Qualität (~190 kbps)</option>
-                <option value="4" {{ 'selected' if config.mp3_quality == 4 else '' }}>4 - Mittlere Qualität (~165 kbps)</option>
-                <option value="6" {{ 'selected' if config.mp3_quality == 6 else '' }}>6 - Normale Qualität (~130 kbps)</option>
+                <option value="0" {{ 'selected' if settings.mp3_quality == 0 else '' }}>0 - Beste Qualität (~245 kbps)</option>
+                <option value="2" {{ 'selected' if settings.mp3_quality == 2 else '' }}>2 - Hohe Qualität (~190 kbps)</option>
+                <option value="4" {{ 'selected' if settings.mp3_quality == 4 else '' }}>4 - Mittlere Qualität (~165 kbps)</option>
+                <option value="6" {{ 'selected' if settings.mp3_quality == 6 else '' }}>6 - Normale Qualität (~130 kbps)</option>
             </select>
             <div class="help-text">lame VBR -V Parameter für MP3 Encoding</div>
         </div>
     </div>
 </div>
+
