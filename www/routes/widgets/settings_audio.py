@@ -78,7 +78,7 @@ def api_audio_settings_widget():
     config = get_audio_settings()
     
     # Rendere Widget-Template
-    return render_template('widgets/audio_widget_settings.html',
-                         settings=settings,
+    return render_template('widgets/settings_4x1_audio.html',
+                         settings=config,
                          t=t)
 

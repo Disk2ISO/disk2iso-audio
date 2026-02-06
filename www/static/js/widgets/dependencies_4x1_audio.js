@@ -1,11 +1,11 @@
 /**
- * Audio Module - Dependencies Widget (4x1)
+ * Dependencies Widget (4x1) - Audio
  * Zeigt Audio-CD spezifische Tools (cdparanoia, lame, etc.)
  * Version: 1.0.0
  */
 
 function loadAudioDependencies() {
-    fetch('/api/system')
+    fetch('/api/widgets/audio/dependencies')
         .then(response => response.json())
         .then(data => {
             if (data.success && data.software) {

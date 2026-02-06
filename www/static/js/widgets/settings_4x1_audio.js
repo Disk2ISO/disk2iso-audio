@@ -1,5 +1,5 @@
 /**
- * disk2iso - Audio Widget Settings
+ * disk2iso - Settings Widget (4x1) - Audio
  * Dynamisches Laden und Verwalten der Audio-CD-Einstellungen
  * Auto-Save bei Fokus-Verlust (moderne UX)
  */
