@@ -5,6 +5,14 @@ Alle wichtigen Änderungen am Audio-CD Ripping Modul werden in dieser Datei doku
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
+## [1.3.0] - 2026-02-07
+
+### Changed
+
+- Kompatibilität mit disk2iso 1.3.0 Service-Struktur
+- Installation nach `services/disk2iso-web/` statt `www/`
+- Version auf 1.3.0 aktualisiert
+
 ## [1.2.1] - 2026-02-04
 
 ### Added in Version 1.2.1
