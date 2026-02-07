@@ -1,0 +1,59 @@
+{
+  "id": "audio",
+  "name": "Audio-CD Modul",
+  "category": "optional",
+  "description": "Rippen von Audio-CDs mit MusicBrainz-Integration und Cover-Art Download",
+  "icon": "https://raw.githubusercontent.com/Disk2ISO/disk2iso-audio/main/store/icon.svg",
+  "author": "Disk2ISO Team",
+  "homepage": "https://github.com/Disk2ISO/disk2iso-audio",
+  "repository": "https://github.com/Disk2ISO/disk2iso-audio",
+  "license": "MIT",
+  "requires": {
+    "disk2iso": ">=1.3.0"
+  },
+  "recommends": {
+    "metadata": ">=1.3.0",
+    "musicbrainz": ">=1.3.0"
+  },
+  "current_version": "1.3.0",
+  "versions": [
+    {
+      "version": "1.3.0",
+      "released": "2026-02-07",
+      "changelog": "Kompatibilität mit disk2iso 1.3.0 Service-Struktur",
+      "download_url": "https://github.com/Disk2ISO/disk2iso-audio/releases/download/v1.3.0/audio-module.zip",
+      "checksum_url": "https://github.com/Disk2ISO/disk2iso-audio/releases/download/v1.3.0/audio-module.zip.sha256",
+      "size": "54.2 KB"
+    },
+    {
+      "version": "1.2.1",
+      "released": "2026-02-04",
+      "changelog": "Initiales Release als eigenständiges Modul",
+      "download_url": "https://github.com/Disk2ISO/disk2iso-audio/releases/download/v1.2.1/audio-module.zip",
+      "checksum_url": "https://github.com/Disk2ISO/disk2iso-audio/releases/download/v1.2.1/audio-module.zip.sha256",
+      "size": "52.1 KB"
+    }
+  ],
+  "install_method": "unzip",
+  "install_path": "/opt/disk2iso/",
+  "post_install": [
+    "sudo systemctl restart disk2iso-web"
+  ],
+  "features": [
+    "CD-TEXT Auslesen",
+    "MusicBrainz Metadaten-Integration",
+    "Cover-Art Download und Einbettung",
+    "LAME VBR V2 Encoding (Standard)",
+    "ISO-Erstellung mit MP3-Dateien",
+    "Offline-Fallback via CD-TEXT",
+    "Multi-Language Support"
+  ],
+  "dependencies": {
+    "system": [
+      "cdparanoia",
+      "lame",
+      "icedax",
+      "cuetools"
+    ]
+  }
+}
