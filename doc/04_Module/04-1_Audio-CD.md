@@ -29,7 +29,7 @@ Professionelles Audio-CD Ripping mit automatischer Metadaten-Erfassung und MP3-E
 
 ```bash
 # Modul-Status
-grep "MODULE_AUDIO_CD" /opt/disk2iso/lib/config.sh
+grep "MODULE_AUDIO_CD" /opt/disk2iso/conf/disk2iso.conf
 
 # Dependencies prüfen
 which cdparanoia lame genisoimage
