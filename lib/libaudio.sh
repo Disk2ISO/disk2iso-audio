@@ -41,7 +41,7 @@ audio_check_dependencies() {
     log_debug "$MSG_DEBUG_AUDIO_CHECK_START"
 
     #-- Alle Modul Abhängigkeiten prüfen -------------------------------------
-    check_module_dependencies "$MODULE_NAME_AUDIO" || return 1
+    integrity_check_module_dependencies "$MODULE_NAME_AUDIO" || return 1
 
     #-- Lade Modul-Konfiguration --------------------------------------------
     load_config_audio || return 1
@@ -101,7 +101,7 @@ is_audio_ready() {
 # .........  abhängigen Modulen
 # Parameter: keine
 # Rückgabe.: Vollständiger Pfad zum Modul Verzeichnis
-# Hinweis: Ordner wird bereits in check_module_dependencies() erstellt
+# Hinweis: Ordner wird bereits in integrity_check_module_dependencies() erstellt
 # ===========================================================================
 get_path_audio() {
     echo "${OUTPUT_DIR}/${MODULE_NAME_AUDIO}"
