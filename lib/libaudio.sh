@@ -221,7 +221,7 @@ get_musicbrainz_metadata() {
         log_warning "WARNUNG: $releases_count Releases gefunden - Benutzer-Auswahl erforderlich"
         
         # Speichere alle Releases in API-Datei für Web-Interface
-        if declare -f api_write_json >/dev/null 2>&1; then
+        if declare -f api_set_file_json >/dev/null 2>&1; then
             # Extrahiere Releases-Array mit Release-ID, Cover-URL und Laufzeit
             local releases_array=$(echo "$mb_response" | jq -c '[.releases[] | {
               id: .id,
@@ -238,7 +238,7 @@ get_musicbrainz_metadata() {
             # Baue finale JSON-Struktur
             local releases_json="{\"disc_id\":\"$disc_id\",\"track_count\":$tracks,\"releases\":$releases_array}"
             
-            api_write_json "musicbrainz_releases.json" "$releases_json"
+            api_set_file_json "musicbrainz_releases.json" "$releases_json"
         fi
         
         # Automatische Auswahl nach Score (kann vom User überschrieben werden)
@@ -281,8 +281,8 @@ get_musicbrainz_metadata() {
         log_info "$releases_count Releases gefunden - Benutzer-Bestätigung wird angefordert"
         
         # Setze vorläufige Auswahl
-        if declare -f api_write_json >/dev/null 2>&1; then
-            api_write_json "musicbrainz_selection.json" "{\"status\":\"waiting_user_input\",\"selected_index\":$best_release_index,\"confidence\":\"medium\",\"message\":\"Mehrere Alben gefunden. Bitte wählen Sie das richtige Album aus.\"}"
+        if declare -f api_set_file_json >/dev/null 2>&1; then
+            api_set_file_json "musicbrainz_selection.json" "{\"status\":\"waiting_user_input\",\"selected_index\":$best_release_index,\"confidence\":\"medium\",\"message\":\"Mehrere Alben gefunden. Bitte wählen Sie das richtige Album aus.\"}"
         fi
         
         # API-Update: Benutzereingriff erforderlich (triggert automatisch MQTT)
